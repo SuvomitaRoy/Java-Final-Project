@@ -1,0 +1,57 @@
+import java.time.LocalDate;
+
+public class Borrow {
+
+    private Document document;
+    private Member member;
+    private LocalDate borrowDate;
+    private LocalDate expectedReturnDate;
+    private LocalDate returnDate;
+
+    public Borrow(Document document, Member member, LocalDate borrowDate) {
+        this.document = document;
+        this.member = member;
+        this.borrowDate = borrowDate;
+        this.expectedReturnDate = borrowDate.plusDays(14); 
+        this.returnDate = null; 
+    }
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public LocalDate getBorrowDate() {
+        return borrowDate;
+    }
+
+    public LocalDate getExpectedReturnDate() {
+        return expectedReturnDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setExpectedReturnDate(LocalDate expectedReturnDate) {
+        this.expectedReturnDate = expectedReturnDate;
+    }
+
+    public boolean isReturned() {
+        return returnDate != null;
+    }
+
+    public boolean isOverdue() {
+        LocalDate checkDate = (returnDate != null) ? returnDate : LocalDate.now();
+        return checkDate.isAfter(expectedReturnDate);
+    }
+
+    
+}
