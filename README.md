@@ -17,3 +17,11 @@ However, before doing these steps, run the files in the model folder (located in
 - Member: javac model/Member.java
 - Borrow: javac model/Borrow.java
 - PenaltyStatus: javac model/PenaltyStatus.java
+
+To view the database:
+1. Go to the Terminal
+2. Go to the folder src
+3. Type sqlite3
+4. Type .open Library.db
+5. Execute SQL statements after to view the tables
+6. To view the schema, type .schema
